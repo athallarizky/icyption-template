@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Poppins';
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    background-color: #111217;
+}
+
+.wrapper-box {
+    width: 80%;
+    border-radius: 8px;
+    background-color: #181921;
+}
+
+
+nav {
+    background-color: transparent;
+    padding: 10px;
+}
+
+.logo {
+    width: 50px;
+}
+
+.main-content {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2;
+}
+
+.title-year {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    color: #EBA948;
+    letter-spacing: 20px;
+    margin-bottom: 10vh;
+}
+
+.type-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 100px;
+    color: #FFF;
+}
+
+.typed-cursor {
+    font-size: 100px;
+    color: #EBA948;
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+
+.divider {
+    width: 5em;
+    height: .1em;
+    background-color: #EBA948;
+}
+
+.desc-content {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #FFF;
+    padding: .5em 1em;
+    margin: 0 1em;
+}
+
+.sub-heading {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    color: #EBA948;
+    margin: 10vh 0 2.5vh 0;
+    letter-spacing: 2px;
+}
+
+.competition-area,
+.term-area {
+    width: 90%;
+    margin: 2.5%;
+    color: #FFF;
+}
+
+
+
+.competition-card,
+.term-card {
+    background-color: #252630;
+    text-align: center;
+    border: none;
+    min-height: 720px;
+    padding: 10px 5px;
+}
+
+.competition-icon {
+    width: 300px;
+}
+
+.trophy {
+    font-size: 2em;
+}
+
+.trophy-area {
+    margin: 5% 0;
+}
+
+.trophy-area p {
+    margin-bottom: 0px !important;
+}
+
+.gold {
+    color: #f5cd79;
+}
+
+.silver {
+    color: #596275;
+}
+
+.bronze {
+    color: #e15f41;
+}
+
+.card-title>b {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    color: #EBA948;
+}
+
+.term-card {
+    width: 80%;
+    min-height: 0 !important;
+    text-align: left;
+    padding: 0 2%;
+}
+
+.term-list>li {
+    margin-bottom: 2vh;
+}
+
+.social-media a {
+    color: #FFF;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.social-media a:hover{
+    color: #EBA948;
+}
+
+/* Radial Out */
+.hvr-radial-out {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.hvr-radial-out:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #30313D;
+    border-radius: 100%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-radial-out:hover:before,
+.hvr-radial-out:focus:before,
+.hvr-radial-out:active:before {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+}
+
+.hvr-radial-out {
+    background-color: #252630 !important;
+}
+
+.hvr-radial-out:hover,
+.hvr-radial-out:focus,
+.hvr-radial-out:active,
+.hvr-radial-out:active:before {
+    background-color: #30313D !important;
+}
+
+.hvr-radial-out:hover {
+    background-color: #252630 !important;
+}
+
+
+/* 
+    Media Queries
+*/
+
+@media (max-width: 576px) {
+    #main {
+        padding: 4.5% 0;
+    }
+
+    .wrapper-box {
+        width: 90%;
+    }
+
+    .type-title {
+        font-size: 50px;
+    }
+
+    .typed-cursor {
+        font-size: 50px;
+    }
+
+    .title-year {
+        margin-bottom: 5vh;
+    }
+
+    .desc-content {
+        font-size: 15px;
+    }
+
+    .competition-icon {
+        width: 150px;
+    }
+
+    .trophy-detail p {
+        font-size: 15px;
+        padding: 5px 5px;
+    }
+
+
+    .competition-card,
+    .term-card {
+        width: 100%;
+    }
+
+    .card {
+        margin-bottom: 2vh;
+        min-height: 0;
+    }
+
+    .card-text {
+        font-size: 15px;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    /* 
+    .competition-card, .term-card{
+        width: 80%;
+    } */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
