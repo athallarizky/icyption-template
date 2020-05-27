@@ -64,29 +64,29 @@
 
 
 
-                                <form action="#" enctype="multipart/form-data">
+                                <form id="registerCpForm" action="#" enctype="multipart/form-data">
                                     <div id="teamIdentity" class="collapse show" aria-labelledby="headingOne"
                                         data-parent="#accordionExample">
                                         <div class="form-group">
                                             <label class="register-label">Nama Lengkap</label>
-                                            <input type="text" class="form-control" placeholder="John Doe">
+                                            <input type="text" class="form-control" placeholder="John Doe" id="cp_nama" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="register-label">Nomor HP</label>
-                                            <input type="text" class="form-control" placeholder="0815xxxxxxx">
+                                            <input type="text" class="form-control" placeholder="0815xxxxxxx" id="cp_notelp" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="register-label">Email</label>
-                                            <input type="email" class="form-control" placeholder="email@example.com">
+                                            <input type="email" class="form-control" placeholder="email@example.com" id="cp_email" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="register-label">Upload Kartu Pelajar</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                            <input type="file" class="form-control-file" id="exampleFormControlFile1" id="cp_fotoId" required>
                                         </div>
                                     </div>
 
                                     <input type="Submit" class="form-control register-submit-button mx-auto"
-                                        value="Submit">
+                                        value="Submit" id="cp_submitBtn">
                                 </form>
                             </div>
                             <!-- </div> -->
