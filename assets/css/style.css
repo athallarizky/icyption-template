@@ -206,6 +206,10 @@ nav {
     color: #FFF;
 }
 
+.form-control-file{
+    color: #FFF;
+}
+
 .heading-caption{
     text-align: center;
     font-family: 'Orbitron', sans-serif;
@@ -222,6 +226,10 @@ nav {
     padding: 15px 0;
 }
 
+.back-home-button{
+    color: #EBA948;
+    font-size: 15px;
+}
 
 .social-media a {
     color: #FFF;

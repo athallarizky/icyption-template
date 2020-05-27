@@ -16,7 +16,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/hover.css">
-    <title>iCyption</title>
+    <title>iCyption - Register CTF</title>
 </head>
 
 <body>
@@ -37,9 +37,10 @@
                     <div class="container">
 
 
-                        <div class="row">
+                        <div class="row mt-5">
                             <div class="col-md-3">
-                                <img src="/assets/img/CP.png" alt="ctf-img" class="competition-icon register-box d-block mx-auto mb-3">
+                                <img src="/assets/img/CTF.png" alt="ctf-img"
+                                    class="competition-icon register-box d-block mx-auto mb-3">
                             </div>
 
                             <div class="col-md-8 ml-auto">
@@ -52,39 +53,50 @@
 
                                 <div class="accordion" id="accordionExample">
                                     <div class="register-button-area">
-                                        <button class="btn btn-link register-button" type="button" data-toggle="collapse" data-target="#teamIdentity" aria-expanded="true" aria-controls="teamIdentity">
+                                        <button class="btn btn-link register-button" type="button"
+                                            data-toggle="collapse" data-target="#teamIdentity" aria-expanded="true"
+                                            aria-controls="teamIdentity">
                                             Identitas Kelompok
-                                          </button>
-    
-                                          <button class="btn btn-link collapsed register-button" type="button" data-toggle="collapse" data-target="#leader" aria-expanded="false" aria-controls="leader">
+                                        </button>
+
+                                        <button class="btn btn-link collapsed register-button" type="button"
+                                            data-toggle="collapse" data-target="#leader" aria-expanded="false"
+                                            aria-controls="leader">
                                             Leader
-                                          </button>
-    
-                                          <button class="btn btn-link collapsed register-button" type="button" data-toggle="collapse" data-target="#memberOne" aria-expanded="false" aria-controls="memberOne">
+                                        </button>
+
+                                        <button class="btn btn-link collapsed register-button" type="button"
+                                            data-toggle="collapse" data-target="#memberOne" aria-expanded="false"
+                                            aria-controls="memberOne">
                                             Anggota 1
-                                          </button>
-    
-    
-                                          <button class="btn btn-link collapsed register-button" type="button" data-toggle="collapse" data-target="#memberTwo" aria-expanded="false" aria-controls="memberTwo">
+                                        </button>
+
+
+                                        <button class="btn btn-link collapsed register-button" type="button"
+                                            data-toggle="collapse" data-target="#memberTwo" aria-expanded="false"
+                                            aria-controls="memberTwo">
                                             Anggota 2
-                                          </button>
+                                        </button>
                                     </div>
-                                    
 
 
-                                      <form action="#">
-                                        <div id="teamIdentity" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+
+                                    <form action="#" enctype="multipart/form-data">
+                                        <div id="teamIdentity" class="collapse show" aria-labelledby="headingOne"
+                                            data-parent="#accordionExample">
                                             <div class="form-group">
                                                 <label class="register-label">Lokasi Peserta</label>
-                                                <input type="text" class="form-control" placeholder="Jawa Barat / Bandung">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Jawa Barat / Bandung">
                                             </div>
                                             <div class="form-group">
                                                 <label class="register-label">Nama Team</label>
                                                 <input type="text" class="form-control" placeholder="iCycptionTeams">
                                             </div>
-                                          </div>
-    
-                                          <div id="leader" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        </div>
+
+                                        <div id="leader" class="collapse" aria-labelledby="headingOne"
+                                            data-parent="#accordionExample">
                                             <div class="form-group">
                                                 <label class="register-label">Nama Lengkap (Leader)</label>
                                                 <input type="text" class="form-control" placeholder="John Doe">
@@ -95,15 +107,18 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="register-label">Email</label>
-                                                <input type="email" class="form-control" placeholder="email@example.com">
+                                                <input type="email" class="form-control"
+                                                    placeholder="email@example.com">
                                             </div>
                                             <div class="form-group">
-                                                <label class="register-label">ID Peserta / NIS</label>
-                                                <input type="email" class="form-control" placeholder="111xxxxx">
+                                                <label class="register-label">Upload Kartu Pelajar</label>
+                                                <input type="file" class="form-control-file"
+                                                    id="exampleFormControlFile1">
                                             </div>
-                                          </div>
+                                        </div>
 
-                                          <div id="memberOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div id="memberOne" class="collapse" aria-labelledby="headingOne"
+                                            data-parent="#accordionExample">
                                             <div class="form-group">
                                                 <label class="register-label">Nama Lengkap (Anggota 1)</label>
                                                 <input type="text" class="form-control" placeholder="John Doe">
@@ -114,15 +129,18 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="register-label">Email</label>
-                                                <input type="email" class="form-control" placeholder="email@example.com">
+                                                <input type="email" class="form-control"
+                                                    placeholder="email@example.com">
                                             </div>
                                             <div class="form-group">
                                                 <label class="register-label">ID Peserta / NIS</label>
-                                                <input type="email" class="form-control" placeholder="111xxxxx">
+                                                <input type="file" class="form-control-file"
+                                                    id="exampleFormControlFile1">
                                             </div>
-                                          </div>
+                                        </div>
 
-                                          <div id="memberTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div id="memberTwo" class="collapse" aria-labelledby="headingOne"
+                                            data-parent="#accordionExample">
                                             <div class="form-group">
                                                 <label class="register-label">Nama Lengkap (Anggota 2)</label>
                                                 <input type="text" class="form-control" placeholder="John Doe">
@@ -133,17 +151,20 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="register-label">Email</label>
-                                                <input type="email" class="form-control" placeholder="email@example.com">
+                                                <input type="email" class="form-control"
+                                                    placeholder="email@example.com">
                                             </div>
                                             <div class="form-group">
                                                 <label class="register-label">ID Peserta / NIS</label>
-                                                <input type="email" class="form-control" placeholder="111xxxxx">
+                                                <input type="file" class="form-control-file"
+                                                    id="exampleFormControlFile1">
                                             </div>
-                                          </div>
+                                        </div>
 
-                                          <input type="Submit" class="form-control register-submit-button mx-auto" value="Submit">
-                                      </form>      
-                                  </div>
+                                        <input type="Submit" class="form-control register-submit-button mx-auto"
+                                            value="Submit">
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
