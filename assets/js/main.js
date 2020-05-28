@@ -101,6 +101,7 @@ const registerCp = () => {
         if (!validateRePassword(password,rePassword))  return alert('Password dan Re-Password tidak sama')
         if ( cekError() ) return alert('Terdapat field yang berwarna merah, harap cek kembali data anda')
         let data = new FormData()
+        data.append('token', token)
         data.append('nama', nama)
         data.append('notelp', notelp)
         data.append('email', email)
