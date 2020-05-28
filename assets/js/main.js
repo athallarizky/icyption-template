@@ -14,6 +14,10 @@ try {
 
 const registerCp = () => {
     // get data
+    grecaptcha.ready(function() {
+        const token = grecaptcha.execute('6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju', {action: 'submit'})
+        alert(token)
+    });
     let nama = $('#cp_nama').val()
     let notelp = $('#cp_notelp').val()
     let email = $('#cp_email').val()
