@@ -1,4 +1,11 @@
 const baseUrl = 'http://localhost:3000'
+
+grecaptcha.ready(async function() {
+    const token = await grecaptcha.execute('6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju', {action: 'submit'})
+    console.log(token) 
+    localStorage.setItem('token', token)
+});
+
 try {
     var title = new Typed('.type-title', {
         strings: [
@@ -86,9 +93,7 @@ const cekEmail = (email,element) => {
 
 
 const registerCp = () => {
-    grecaptcha.ready(async function() {
-        const token = await grecaptcha.execute('6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju', {action: 'submit'})
-        console.log(token) 
+        const token = localStorage.getItem('token')
         // get data
         let nama = $('#cp_nama').val()
         let notelp = $('#cp_notelp').val()
@@ -120,13 +125,14 @@ const registerCp = () => {
         })
         .then(async response => {
             console.log(response.data)
+            //dibawah ini lakuin kalo udah selesai/pindah halaman
+            //localStorage.removeItem(token)
             alert(response.data.message)
         })
         .catch(err => {
             console.log(err.response.data)
             alert(err.response.data.message)
         })
-    });
 }
 
 const validasiInput = (index) => {
