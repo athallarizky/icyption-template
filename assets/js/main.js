@@ -83,21 +83,30 @@ const cekEmail = (email,element) => {
 }
 
 
+
+
 const registerCp = () => {
-    // get data
     grecaptcha.ready(async function() {
         const token = await grecaptcha.execute('6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju', {action: 'submit'})
         console.log(token) 
-        
+        // get data
         let nama = $('#cp_nama').val()
         let notelp = $('#cp_notelp').val()
         let email = $('#cp_email').val()
+        let username = $('#cp_username').val()
+        let password = $('#cp_password').val()
+        let rePassword = $('#cp_rePassword').val()
         let fotoId = $('#cp_fotoId')[0].files[0]
+        // validasi
+        if (!validateRePassword(password,rePassword))  return alert('Password dan Re-Password tidak sama')
+        if ( cekError() ) return alert('Terdapat field yang berwarna merah, harap cek kembali data anda')
         let data = new FormData()
-        data.append('token', token)
         data.append('nama', nama)
         data.append('notelp', notelp)
         data.append('email', email)
+        data.append('username', username)
+        data.append('password', password)
+        data.append('rePassword', rePassword)
         data.append('fotoId', fotoId)
         // send data
         axios({
