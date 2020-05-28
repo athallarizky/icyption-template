@@ -1,4 +1,4 @@
-const baseUrl = 'http://icybe.aliven.my.id'
+const baseUrl = 'http://localhost:3000'
 try {
     var title = new Typed('.type-title', {
         strings: [
@@ -11,17 +11,97 @@ try {
     console.log(err)
 }
 
+const validateRePassword = (password,rePassword) => {
+    if (password !== rePassword) return false
+    else return true
+}
+
+const cekError = () => {
+    console.log($('.validationFail'))
+    const count = $('.validationFail').length
+    console.log(count)
+    if (count > 0) return true
+    else return false
+}
+
+const cekUsername = (username,element) => {
+    if (username.length !== 0) {
+        const str = username.split(' ')
+        if (str.length != 1) {
+            alert('username tidak boleh menggunakan spasi')
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationFail')
+            return;
+        }
+        axios({
+            url : baseUrl + '/api/users/cekUsername/' + username,
+            method : 'GET',
+        })
+        .then(response => {
+            console.log(element)
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationPass')
+        })
+        .catch(err => {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationFail')
+        })
+    }else {
+        $(element).removeClass('validationFail')
+        $(element).removeClass('validationPass')
+    } 
+}
+
+const cekEmail = (email,element) => {
+    if (email.length !== 0) {
+        const n = email.indexOf("@")
+        if (n == -1) {
+            alert('Format email salah')
+            return flashError()
+        }
+        axios({
+            url : baseUrl + '/api/users/cekEmail/' + email,
+            method : 'GET',
+        })
+        .then(response => {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationPass')
+        })
+        .catch(err => {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationFail')
+        })
+    }else {
+        $(element).removeClass('validationFail')
+        $(element).removeClass('validationPass')
+    }
+}
+
 
 const registerCp = () => {
     // get data
     let nama = $('#cp_nama').val()
     let notelp = $('#cp_notelp').val()
     let email = $('#cp_email').val()
+    let username = $('#cp_username').val()
+    let password = $('#cp_password').val()
+    let rePassword = $('#cp_rePassword').val()
     let fotoId = $('#cp_fotoId')[0].files[0]
+    // validasi
+    if (!validateRePassword(password,rePassword))  return alert('Password dan Re-Password tidak sama')
+    if ( cekError() ) return alert('Terdapat field yang berwarna merah, harap cek kembali data anda')
     let data = new FormData()
     data.append('nama', nama)
     data.append('notelp', notelp)
     data.append('email', email)
+    data.append('username', username)
+    data.append('password', password)
+    data.append('rePassword', rePassword)
     data.append('fotoId', fotoId)
     // send data
     axios({
@@ -81,6 +161,12 @@ const validasiEmail = dataPeserta => {
 }
 
 const registerCtf = () => {
+    if ( cekError() ) return alert('Terdapat field yang berwarna merah, harap cek kembali data anda')
+    // akun team
+    let username = $('#ctf_username').val()
+    let password = $('#ctf_password').val()
+    let rePassword = $('#ctf_rePassword').val()
+    if (!validateRePassword(password,rePassword)) return alert('Password dan Re-Password tidak sama')
     let input0 = validasiInput(0)
     let input1 = validasiInput(1)
     let input2 = validasiInput(2)
@@ -108,6 +194,10 @@ const registerCtf = () => {
         let data = new FormData()
         data.append('namaTeam' , namaTeam)
         data.append('daerah' , daerah)
+        data.append('username' , username)
+        data.append('password' , password)
+        data.append('rePassword' , rePassword)
+        
         for (let i = 0; i < fotoId.length; i++) {
             data.append('fotoId', fotoId[i])
         }
@@ -133,6 +223,8 @@ const registerCtf = () => {
 }
 
 $(document).ready(() => {
+    sessionStorage.removeItem('emailErr')
+    sessionStorage.removeItem('usernameErr')
     $('body').on('submit' , '#registerCpForm', e => {
         e.preventDefault();
         registerCp();
