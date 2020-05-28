@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://icybe.aliven.my.id'
 try {
     var title = new Typed('.type-title', {
         strings: [
