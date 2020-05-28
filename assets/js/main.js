@@ -1,4 +1,4 @@
-const baseUrl = 'http://icybe.aliven.my.id'
+const baseUrl = 'https://icybe.aliven.my.id'
 try {
     var title = new Typed('.type-title', {
         strings: [
@@ -14,36 +14,38 @@ try {
 
 const registerCp = () => {
     // get data
-    grecaptcha.ready(function() {
-        const token = grecaptcha.execute('6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju', {action: 'submit'})
-        alert(token)
+    grecaptcha.ready(async function() {
+        const token = await grecaptcha.execute('6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju', {action: 'submit'})
+        console.log(token) 
+        
+        let nama = $('#cp_nama').val()
+        let notelp = $('#cp_notelp').val()
+        let email = $('#cp_email').val()
+        let fotoId = $('#cp_fotoId')[0].files[0]
+        let data = new FormData()
+        data.append('token', token)
+        data.append('nama', nama)
+        data.append('notelp', notelp)
+        data.append('email', email)
+        data.append('fotoId', fotoId)
+        // send data
+        axios({
+            url : baseUrl + '/api/users/registerCp',
+            method : 'POST',
+            headers : {
+                'Accept' : 'multipart/form-data'
+            },
+            data : data
+        })
+        .then(async response => {
+            console.log(response.data)
+            alert(response.data.message)
+        })
+        .catch(err => {
+            console.log(err.response.data)
+            alert(err.response.data.message)
+        })
     });
-    let nama = $('#cp_nama').val()
-    let notelp = $('#cp_notelp').val()
-    let email = $('#cp_email').val()
-    let fotoId = $('#cp_fotoId')[0].files[0]
-    let data = new FormData()
-    data.append('nama', nama)
-    data.append('notelp', notelp)
-    data.append('email', email)
-    data.append('fotoId', fotoId)
-    // send data
-    axios({
-        url : baseUrl + '/api/users/registerCp',
-        method : 'POST',
-        headers : {
-            'Accept' : 'multipart/form-data'
-        },
-        data : data
-    })
-    .then(async response => {
-        console.log(response.data)
-        alert(response.data.message)
-    })
-    .catch(err => {
-        console.log(err.response.data)
-        alert(err.response.data.message)
-    })
 }
 
 const validasiInput = (index) => {
