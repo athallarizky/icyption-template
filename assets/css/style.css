@@ -11,14 +11,15 @@ body {
     font-family: 'Poppins';
 }
 
-#main, #register {
+#main,
+#register {
     display: flex;
     justify-content: center;
     padding: 1%;
     background-color: #111217;
 }
 
-#register{
+#register {
     min-height: 100%;
 }
 
@@ -38,7 +39,7 @@ nav {
     width: 50px;
 }
 
-.close-button{
+.close-button {
     font-size: 30px;
     padding: 5px;
     color: #EBA948;
@@ -99,7 +100,8 @@ nav {
 
 .competition-area,
 .term-area,
-.register-area {
+.register-area,
+.sponsorship-area, .medpart-area {
     width: 90% !important;
     margin: 2.5%;
     color: #FFF;
@@ -148,7 +150,7 @@ nav {
     color: #EBA948;
 }
 
-.card-text{
+.card-text {
     color: #FFF;
 }
 
@@ -163,71 +165,86 @@ nav {
     margin-bottom: 2vh;
 }
 
-.register-link{
+.register-link {
     text-decoration: none !important;
 }
 
-.register-link:hover > h5{
+.register-link:hover>h5 {
     color: #EBA948;
 }
 
-.register-box{
+.register-box {
     padding: 10px;
     border: 1.5px solid #EBA948;
     border-radius: 8px;
 }
 
-.register-box:hover{
+.register-box:hover {
     background-color: #EBA948;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
 
-.register-button-area{
+.register-button-area {
     margin-bottom: 25px;
 }
 
-.register-button, .register-submit-button{
+.register-button,
+.register-submit-button {
     border: none;
     background-color: #EBA948;
     color: #252630;
 }
 
-.register-button{
+.register-button {
     margin-bottom: 5px;
     text-decoration: none !important;
 }
 
-.register-submit-button{
+.register-submit-button {
     width: 40%;
     margin: 20px 0;
 }
 
-.register-button:hover, .register-submit-button:hover{
+.register-button:hover,
+.register-submit-button:hover {
     transition: 0.3s ease-in-out;
     color: #252630;
     background-color: #e15f41;
 }
 
-.register-label{
+.register-label {
     color: #FFF;
 }
 
-.register-list{
+.register-list,
+.sponsorship-list, .medpart-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.register-item{
+.sponsorship-list, .medpart-list{
+    justify-content: space-around;
+}
+
+.sponsorship-item > img, .medpart-item > img {
+    width: 100px;
+}
+
+.sponsorship-item > img{
+    opacity: 0.1;
+}
+
+.register-item {
     margin: 10px;
 }
 
-.form-control-file{
+.form-control-file {
     color: #FFF;
 }
 
-.heading-caption{
+.heading-caption {
     text-align: center;
     font-family: 'Orbitron', sans-serif;
     color: #FFF;
@@ -235,15 +252,16 @@ nav {
     letter-spacing: 2px;
 }
 
-.register-caption{
+.register-caption {
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     color: #FFF;
     letter-spacing: 2px;
     padding: 15px 0;
+    width: 70%;
 }
 
-.back-home-button{
+.back-home-button {
     color: #EBA948;
     font-size: 15px;
 }
@@ -254,7 +272,7 @@ nav {
     text-decoration: none;
 }
 
-.social-media a:hover{
+.social-media a:hover {
     color: #EBA948;
 }
 
@@ -369,12 +387,20 @@ nav {
         font-size: 15px;
     }
 
-    .register-caption{
+    .register-caption {
         font-size: 13px;
     }
 
-    .register-submit-button{
+    .register-submit-button {
         width: 100%;
+    }
+
+    .register-list, .medpart-list{
+        flex-wrap: wrap;
+    }
+
+    .sponsorship-item > img, .medpart-item > img {
+        width: 70px;
     }
 
 }
