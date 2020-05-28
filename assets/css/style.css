@@ -31,10 +31,17 @@ body {
 nav {
     background-color: transparent;
     padding: 10px;
+    display: flex;
 }
 
 .logo {
     width: 50px;
+}
+
+.close-button{
+    font-size: 30px;
+    padding: 5px;
+    color: #EBA948;
 }
 
 .main-content {
@@ -204,6 +211,16 @@ nav {
 
 .register-label{
     color: #FFF;
+}
+
+.register-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.register-item{
+    margin: 10px;
 }
 
 .form-control-file{

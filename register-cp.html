@@ -31,10 +31,14 @@
                 <div class="logo mx-auto">
                     <img src="/assets/img/logo.png" alt="logo" class="logo">
                 </div>
+                <a href="index.html">
+                    <div class="close-button">
+                        <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+                    </div>
+                </a>
             </nav>
 
             <div class="main-content">
-
 
                 <section class="registration-form-area">
                     <h2 class="sub-heading">Competitive Programming</h2>
@@ -54,42 +58,69 @@
                                     waktu yang telah ditetapkan.
                                 </p>
 
-                                <!-- <div class="accordion" id="accordionExample"></div> -->
-                                <div class="register-button-area">
-                                    <button class="btn btn-link register-button" type="button" data-toggle="collapse"
-                                        data-target="#teamIdentity" aria-expanded="true" aria-controls="teamIdentity">
-                                        Identitas Peserta
-                                    </button>
-                                </div>
+                                <div class="accordion" id="accordionExample">
+                                    <div class="register-button-area">
 
+                                        <button class="btn btn-link register-button" type="button"
+                                            data-toggle="collapse" data-target="#teamAccount" aria-expanded="true"
+                                            aria-controls="teamAccount">
+                                            Akun Tim
+                                        </button>
 
+                                        <button class="btn btn-link register-button" type="button"
+                                            data-toggle="collapse" data-target="#teamIdentity" aria-expanded="true"
+                                            aria-controls="teamIdentity">
+                                            Identitas Peserta
+                                        </button>
 
-                                <form id="registerCpForm" action="#" enctype="multipart/form-data">
-                                    <div id="teamIdentity" class="collapse show" aria-labelledby="headingOne"
-                                        data-parent="#accordionExample">
-                                        <div class="form-group">
-                                            <label class="register-label">Nama Lengkap</label>
-                                            <input type="text" class="form-control" placeholder="John Doe" id="cp_nama" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="register-label">Nomor HP</label>
-                                            <input type="text" class="form-control" placeholder="0815xxxxxxx" id="cp_notelp" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="register-label">Email</label>
-                                            <input type="email" class="form-control" placeholder="email@example.com" id="cp_email" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="register-label">Upload Kartu Pelajar</label>
-                                            <input type="file" class="form-control-file" id="cp_fotoId" required>
-                                        </div>
                                     </div>
 
-                                    <input type="Submit" class="form-control register-submit-button mx-auto"
-                                        value="Submit" id="cp_submitBtn">
-                                </form>
+
+
+                                    <form id="registerCpForm" action="#" enctype="multipart/form-data">
+
+                                        <div id="teamAccount" class="collapse show" aria-labelledby="headingOne"
+                                            data-parent="#accordionExample">
+                                            <div class="form-group">
+                                                <label class="register-label">Username</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="teamIcypction">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="register-label">Password</label>
+                                                <input type="passowrd" class="form-control" placeholder="******">
+                                            </div>
+                                        </div>
+
+                                        <div id="teamIdentity" class="collapse" aria-labelledby="headingOne"
+                                            data-parent="#accordionExample">
+                                            <div class="form-group">
+                                                <label class="register-label">Nama Lengkap</label>
+                                                <input type="text" class="form-control" placeholder="John Doe"
+                                                    id="cp_nama" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="register-label">Nomor HP</label>
+                                                <input type="text" class="form-control" placeholder="0815xxxxxxx"
+                                                    id="cp_notelp" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="register-label">Email</label>
+                                                <input type="email" class="form-control" placeholder="email@example.com"
+                                                    id="cp_email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="register-label">Upload Kartu Pelajar</label>
+                                                <input type="file" class="form-control-file" id="cp_fotoId" required>
+                                            </div>
+                                        </div>
+
+                                        <input type="Submit" class="form-control register-submit-button mx-auto"
+                                            value="Submit" id="cp_submitBtn">
+                                    </form>
+                                </div>
                             </div>
-                            <!-- </div> -->
                         </div>
                     </div>
 
