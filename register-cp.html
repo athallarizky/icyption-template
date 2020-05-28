@@ -84,18 +84,18 @@
                                             data-parent="#accordionExample">
                                             <div class="form-group">
                                                 <label class="register-label">Username</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="teamIcypction">
+                                                <input type="text" class="form-control usernameInput"
+                                                    placeholder="teamIcypction" id="cp_username" onchange="cekUsername(this.value,this)" required >
                                             </div>
                                             
                                             <div class="form-group">
                                                 <label class="register-label">Password</label>
-                                                <input type="password" class="form-control" placeholder="******">
+                                                <input type="password" class="form-control" placeholder="******" id="cp_password" required>
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="register-label">Ketik Ulang Password</label>
-                                                <input type="password" class="form-control" placeholder="******">
+                                                <input type="password" class="form-control" placeholder="******" id="cp_rePassword" required>
                                             </div>
                                         </div>
 
@@ -114,7 +114,7 @@
                                             <div class="form-group">
                                                 <label class="register-label">Email</label>
                                                 <input type="email" class="form-control" placeholder="email@example.com"
-                                                    id="cp_email" required>
+                                                    id="cp_email" required onchange="cekEmail(this.value,this)">
                                             </div>
                                             <div class="form-group">
                                                 <label class="register-label">Upload Kartu Pelajar</label>

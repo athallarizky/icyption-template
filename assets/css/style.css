@@ -11,6 +11,14 @@ body {
     font-family: 'Poppins';
 }
 
+.validationPass {
+    background-color:green;
+}
+
+.validationFail {
+    background-color:red;
+}
+
 #main,
 #register {
     display: flex;
