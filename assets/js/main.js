@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'https://icybe.aliven.my.id/'
 
 grecaptcha.ready(async function() {
     const token = await grecaptcha.execute('6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju', {action: 'submit'})
