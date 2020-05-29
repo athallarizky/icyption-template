@@ -31,36 +31,36 @@ const cekError = () => {
     else return false
 }
 
-const cekUsername = (username,element) => {
-    if (username.length !== 0) {
-        const str = username.split(' ')
-        if (str.length != 1) {
-            alert('username tidak boleh menggunakan spasi')
-            $(element).removeClass('validationFail')
-            $(element).removeClass('validationPass')
-            $(element).addClass('validationFail')
-            return;
-        }
-        axios({
-            url : baseUrl + '/api/users/cekUsername/' + username,
-            method : 'GET',
-        })
-        .then(response => {
-            console.log(element)
-            $(element).removeClass('validationFail')
-            $(element).removeClass('validationPass')
-            $(element).addClass('validationPass')
-        })
-        .catch(err => {
-            $(element).removeClass('validationFail')
-            $(element).removeClass('validationPass')
-            $(element).addClass('validationFail')
-        })
-    }else {
-        $(element).removeClass('validationFail')
-        $(element).removeClass('validationPass')
-    } 
-}
+// const cekUsername = (username,element) => {
+//     if (username.length !== 0) {
+//         const str = username.split(' ')
+//         if (str.length != 1) {
+//             alert('username tidak boleh menggunakan spasi')
+//             $(element).removeClass('validationFail')
+//             $(element).removeClass('validationPass')
+//             $(element).addClass('validationFail')
+//             return;
+//         }
+//         axios({
+//             url : baseUrl + '/api/users/cekUsername/' + username,
+//             method : 'GET',
+//         })
+//         .then(response => {
+//             console.log(element)
+//             $(element).removeClass('validationFail')
+//             $(element).removeClass('validationPass')
+//             $(element).addClass('validationPass')
+//         })
+//         .catch(err => {
+//             $(element).removeClass('validationFail')
+//             $(element).removeClass('validationPass')
+//             $(element).addClass('validationFail')
+//         })
+//     }else {
+//         $(element).removeClass('validationFail')
+//         $(element).removeClass('validationPass')
+//     } 
+// }
 
 const cekEmail = (email,element) => {
     if (email.length !== 0) {
