@@ -6,6 +6,12 @@ grecaptcha.ready(async function() {
     localStorage.setItem('token', token)
 });
 
+function createRecaptcha() {
+    grecaptcha.render("captcha", {sitekey: "6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju", theme: "dark"});
+}
+$("#showModal").click(function() {
+    
+});
 try {
     var title = new Typed('.type-title', {
         strings: [
@@ -125,9 +131,17 @@ const registerCp = () => {
         })
         .then(async response => {
             console.log(response.data)
+            if (response.data.message == "Captcha"){
+                $("#myModal").modal("show");
+                setTimeout(function() {
+                    createRecaptcha();
+                }, 100);
+            }else{ 
+                alert(response.data.message)
+            }
             //dibawah ini lakuin kalo udah selesai/pindah halaman
             //localStorage.removeItem(token)
-            alert(response.data.message)
+            
         })
         .catch(err => {
             console.log(err.response.data)
