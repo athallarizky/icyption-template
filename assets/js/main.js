@@ -176,6 +176,7 @@ const validasiEmail = dataPeserta => {
 const registerCtf = () => {
     if ( cekError() ) return alert('Terdapat field yang berwarna merah, harap cek kembali data anda')
     // akun team
+    const token = localStorage.getItem('token')
     let username = $('#ctf_username').val()
     let password = $('#ctf_password').val()
     let rePassword = $('#ctf_rePassword').val()
@@ -205,6 +206,7 @@ const registerCtf = () => {
             return alert('Email tidak diperbolehkan sama, silahkan cek kembali email yang digunakan')
         }
         let data = new FormData()
+        data.append('token', token)
         data.append('namaTeam' , namaTeam)
         data.append('daerah' , daerah)
         data.append('username' , username)
