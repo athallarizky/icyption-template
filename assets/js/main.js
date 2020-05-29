@@ -6,15 +6,6 @@ grecaptcha.ready(async function() {
     localStorage.setItem('token', token)
 });
 
-function createRecaptcha() {
-    grecaptcha.render("captcha", {sitekey: "6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju", theme: "light",'callback': recaptchaCallback});
-}
-
-const recaptchaCallback = () => {
-    const captchaResponse = grecaptcha.getResponse();
-    console.log(captchaResponse)
-}
-
 try {
     var title = new Typed('.type-title', {
         strings: [
@@ -134,20 +125,13 @@ const registerCp = () => {
         })
         .then(async response => {
             console.log(response.data)
-            //dibawah ini lakuin removeItem kalo udah selesai/pindah halaman
+            //dibawah ini lakuin kalo udah selesai/pindah halaman
             //localStorage.removeItem(token)
             alert(response.data.message)
         })
         .catch(err => {
             console.log(err.response.data)
-            if (err.response.data.message == "Captcha"){
-                $("#myModal").modal("show");
-                setTimeout(function() {
-                    createRecaptcha();
-                }, 100);
-            }else{ 
-                alert(err.response.data.message)
-            }
+            alert(err.response.data.message)
         })
 }
 
