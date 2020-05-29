@@ -7,7 +7,7 @@ grecaptcha.ready(async function() {
 });
 
 function createRecaptcha() {
-    grecaptcha.render("captcha", {sitekey: "6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju", theme: "dark",'light': recaptchaCallback});
+    grecaptcha.render("captcha", {sitekey: "6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju", theme: "light",'callback': recaptchaCallback});
 }
 
 const recaptchaCallback = () => {
