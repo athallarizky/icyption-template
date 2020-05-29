@@ -7,7 +7,12 @@ grecaptcha.ready(async function() {
 });
 
 function createRecaptcha() {
-    grecaptcha.render("captcha", {sitekey: "6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju", theme: "dark"});
+    grecaptcha.render("captcha", {sitekey: "6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju", theme: "dark",'callback': recaptchaCallback});
+}
+
+const recaptchaCallback = () => {
+    const captchaResponse = grecaptcha.getResponse();
+    console.log(captchaResponse)
 }
 
 try {
