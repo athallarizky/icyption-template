@@ -99,9 +99,6 @@ const registerCp = () => {
         let notelp = $('#cp_notelp').val()
         let email = $('#cp_email').val()
         let namaSekolah = $('#cp_namaSekolah').val()
-        // let username = $('#cp_username').val()
-        // let password = $('#cp_password').val()
-        // let rePassword = $('#cp_rePassword').val()
         let logoSekolah = $('#cp_logoSekolah')[0].files[0]
         let fotoId = $('#cp_fotoId')[0].files[0]
         // validasi
@@ -181,9 +178,6 @@ const registerCtf = () => {
     if ( cekError() ) return swal('Terdapat field yang berwarna merah, harap cek kembali data anda')
     // akun team
     const token = localStorage.getItem('token')
-    let username = $('#ctf_username').val()
-    let password = $('#ctf_password').val()
-    let rePassword = $('#ctf_rePassword').val()
     if (!validateRePassword(password,rePassword)) return swal('Password dan Re-Password tidak sama')
     let input0 = validasiInput(0)
     let input1 = validasiInput(1)
@@ -192,6 +186,8 @@ const registerCtf = () => {
     if (!input0.error && !input1.error && !input2.error) {
         let namaTeam = $('#ctf_namaTeam').val()
         let daerah = $('#ctf_daerah').val()
+        let namaSekolah = $('#ctf_namaSekolah').val()
+        let logoSekolah = $('#ctf_logoSekolah')[0].files[0]
         let fotoId = []
         let dataPeserta = []
         for (let i = 0; i < 3; i++) {
@@ -216,6 +212,8 @@ const registerCtf = () => {
         data.append('username' , username)
         data.append('password' , password)
         data.append('rePassword' , rePassword)
+        data.append('namaSekolah', namaSekolah)
+        data.append('logoSekolah', logoSekolah)
         
         for (let i = 0; i < fotoId.length; i++) {
             data.append('fotoId', fotoId[i])
