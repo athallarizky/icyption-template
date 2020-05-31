@@ -17,10 +17,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/hover.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/hover.css">
     <title>iCyption - Register CP</title>
 </head>
 
@@ -30,9 +31,9 @@
 
             <nav>
                 <div class="logo mx-auto">
-                    <img src="/assets/img/logo.png" alt="logo" class="logo">
+                    <img src="./assets/img/logo.png" alt="logo" class="logo">
                 </div>
-                <a href="index.html">
+                <a href="./">
                     <div class="close-button">
                         <i class="fa fa-times-circle-o" aria-hidden="true"></i>
                     </div>
@@ -48,7 +49,7 @@
 
                         <div class="row mt-5">
                             <div class="col-md-3">
-                                <img src="/assets/img/CP.png" alt="ctf-img"
+                                <img src="./assets/img/CP.png" alt="ctf-img"
                                     class="competition-icon register-box d-block mx-auto mb-3">
                             </div>
 
@@ -65,7 +66,7 @@
                                         <button class="btn btn-link register-button" type="button"
                                             data-toggle="collapse" data-target="#teamAccount" aria-expanded="true"
                                             aria-controls="teamAccount">
-                                            Akun Tim
+                                            Data Sekolah
                                         </button>
 
                                         <button class="btn btn-link register-button" type="button"
@@ -83,19 +84,14 @@
                                         <div id="teamAccount" class="collapse show" aria-labelledby="headingOne"
                                             data-parent="#accordionExample">
                                             <div class="form-group">
-                                                <label class="register-label">Username</label>
+                                                <label class="register-label">Nama Sekolah</label>
                                                 <input type="text" class="form-control usernameInput"
-                                                    placeholder="teamIcypction" id="cp_username" onchange="cekUsername(this.value,this)" required >
+                                                    placeholder="Nama Sekolah" id="cp_namaSekolah" onchange="cekUsername(this.value,this)" required >
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="register-label">Password</label>
-                                                <input type="password" class="form-control" placeholder="******" id="cp_password" required>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="register-label">Ketik Ulang Password</label>
-                                                <input type="password" class="form-control" placeholder="******" id="cp_rePassword" required>
+                                                <label class="register-label">Upload Foto Logo Sekolah</label>
+                                                <input type="file" class="form-control-file" id="cp_logoSekolah" required>
                                             </div>
                                         </div>
 
@@ -137,9 +133,9 @@
                     <hr class="footer-line">
                     <div class="footer-logo">
                         <div class="footer-logo-left">
-                            <img src="/assets/img/telyu.png" alt="logo-footer">
-                            <img src="/assets/img/himaif.png" alt="logo-footer">
-                            <img src="/assets/img/logo.png" alt="">
+                            <img src="./assets/img/telyu.png" alt="logo-footer">
+                            <img src="./assets/img/himaif.png" alt="logo-footer">
+                            <img src="./assets/img/logo.png" alt="">
                         </div>
 
                         <div class="footer-logo-right">
@@ -163,7 +159,7 @@
 
     <!-- Optional JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="./assets/js/main.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
