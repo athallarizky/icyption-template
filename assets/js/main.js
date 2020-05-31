@@ -1,4 +1,4 @@
-const baseUrl = 'https://icybe.aliven.my.id/'
+const baseUrl = 'https://icybe.aliven.my.id'
 
 grecaptcha.ready(async function() {
     const token = await grecaptcha.execute('6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju', {action: 'submit'})
@@ -35,7 +35,7 @@ const cekError = () => {
 //     if (username.length !== 0) {
 //         const str = username.split(' ')
 //         if (str.length != 1) {
-//             alert('username tidak boleh menggunakan spasi')
+//             swal('username tidak boleh menggunakan spasi')
 //             $(element).removeClass('validationFail')
 //             $(element).removeClass('validationPass')
 //             $(element).addClass('validationFail')
@@ -66,7 +66,7 @@ const cekEmail = (email,element) => {
     if (email.length !== 0) {
         const n = email.indexOf("@")
         if (n == -1) {
-            alert('Format email salah')
+            swal('Format email salah')
             return flashError()
         }
         axios({
@@ -103,8 +103,8 @@ const registerCp = () => {
         // let rePassword = $('#cp_rePassword').val()
         let fotoId = $('#cp_fotoId')[0].files[0]
         // validasi
-        // if (!validateRePassword(password,rePassword))  return alert('Password dan Re-Password tidak sama')
-        if ( cekError() ) return alert('Terdapat field yang berwarna merah, harap cek kembali data anda')
+        // if (!validateRePassword(password,rePassword))  return swal('Password dan Re-Password tidak sama')
+        if ( cekError() ) return swal('Terdapat field yang berwarna merah, harap cek kembali data anda')
         let data = new FormData()
         data.append('token', token)
         data.append('nama', nama)
@@ -127,11 +127,11 @@ const registerCp = () => {
             console.log(response.data)
             //dibawah ini lakuin kalo udah selesai/pindah halaman
             //localStorage.removeItem(token)
-            alert(response.data.message)
+            swal(response.data.message)
         })
         .catch(err => {
             console.log(err.response.data)
-            alert(err.response.data.message)
+            swal(err.response.data.message)
         })
 }
 
@@ -151,9 +151,9 @@ const validasiInput = (index) => {
     }else {
         // error data masih kurang
         if (index === 0) {
-            alert('data leader kurang lengkap')
+            swal('data leader kurang lengkap')
         }else {
-            alert(`data member ke-${index} tidak lengkap`)
+            swal(`data member ke-${index} tidak lengkap`)
         }
         return {error : true}
     }
@@ -174,13 +174,13 @@ const validasiEmail = dataPeserta => {
 }
 
 const registerCtf = () => {
-    if ( cekError() ) return alert('Terdapat field yang berwarna merah, harap cek kembali data anda')
+    if ( cekError() ) return swal('Terdapat field yang berwarna merah, harap cek kembali data anda')
     // akun team
     const token = localStorage.getItem('token')
     let username = $('#ctf_username').val()
     let password = $('#ctf_password').val()
     let rePassword = $('#ctf_rePassword').val()
-    if (!validateRePassword(password,rePassword)) return alert('Password dan Re-Password tidak sama')
+    if (!validateRePassword(password,rePassword)) return swal('Password dan Re-Password tidak sama')
     let input0 = validasiInput(0)
     let input1 = validasiInput(1)
     let input2 = validasiInput(2)
@@ -203,7 +203,7 @@ const registerCtf = () => {
         // validasi email
         let error = validasiEmail(dataPeserta)
         if (error) {
-            return alert('Email tidak diperbolehkan sama, silahkan cek kembali email yang digunakan')
+            return swal('Email tidak diperbolehkan sama, silahkan cek kembali email yang digunakan')
         }
         let data = new FormData()
         data.append('token', token)
@@ -228,11 +228,11 @@ const registerCtf = () => {
         })
         .then(async response => {
             console.log(response.data)
-            alert(response.data.message)
+            swal(response.data.message)
         })
         .catch(err => {
             console.log(err.response)
-            alert(err.response.data.message)
+            swal(err.response.data.message)
         })
     }
 }
