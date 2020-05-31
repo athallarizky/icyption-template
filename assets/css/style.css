@@ -21,6 +21,31 @@ body {
     border: transparent;
 }
 
+.custom-message-red {
+    color: #eb3b5a;
+}
+
+.custom-message-green {
+    color: #26de81;
+}
+
+.loading {
+    text-align: center;
+}
+
+/* menghilangkan arrow pada input type number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 #main,
 #register {
     display: flex;

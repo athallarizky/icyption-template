@@ -1,4 +1,4 @@
-const baseUrl = 'https://icybe.aliven.my.id'
+const baseUrl = 'http://localhost:3000'
 
 grecaptcha.ready(async function() {
     const token = await grecaptcha.execute('6LeatvwUAAAAAANgMTBjt-eD0NkSZu2eyoaUExju', {action: 'submit'})
@@ -31,43 +31,90 @@ const cekError = () => {
     else return false
 }
 
-// const cekUsername = (username,element) => {
-//     if (username.length !== 0) {
-//         const str = username.split(' ')
-//         if (str.length != 1) {
-//             swal('username tidak boleh menggunakan spasi')
-//             $(element).removeClass('validationFail')
-//             $(element).removeClass('validationPass')
-//             $(element).addClass('validationFail')
-//             return;
-//         }
-//         axios({
-//             url : baseUrl + '/api/users/cekUsername/' + username,
-//             method : 'GET',
-//         })
-//         .then(response => {
-//             console.log(element)
-//             $(element).removeClass('validationFail')
-//             $(element).removeClass('validationPass')
-//             $(element).addClass('validationPass')
-//         })
-//         .catch(err => {
-//             $(element).removeClass('validationFail')
-//             $(element).removeClass('validationPass')
-//             $(element).addClass('validationFail')
-//         })
-//     }else {
-//         $(element).removeClass('validationFail')
-//         $(element).removeClass('validationPass')
-//     } 
-// }
+const appendMessageBelowElement = (element,message = "",type) => {
+    // cek apakah element sesudahnya ada 
+    const msgElm = $(element).next()
+    if (msgElm.length == 1) msgElm.remove()
+    if (type == false) $(element).after(`<p class="custom-message-red">${message}</p>`)
+}
 
-const cekEmail = (email,element) => {
-    if (email.length !== 0) {
+const cekNotelp = (element,type = "cp") => {
+    if ( !cekLength(element,6,type) ) return 
+    if (element.value[0] != 0) {
+        $(element).removeClass('validationFail')
+        $(element).removeClass('validationPass')
+        $(element).addClass('validationFail')
+        appendMessageBelowElement(element,`No Handphone salah format, harus diawali 0`,false)
+    }else {
+        $(element).removeClass('validationFail')
+        $(element).removeClass('validationPass')
+        $(element).addClass('validationPass')
+        appendMessageBelowElement(element,true)
+    }   
+}
+
+const cekLength = (element,min,type = 'cp') => {
+    const field = element.value
+    if (type == 'cp') {
+        if (field.length < min && field.length != 0) {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationFail')
+            appendMessageBelowElement(element,`Field ini minimal ${min} karakter`,false)
+            return false
+        }else if (field.length >= min) {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationPass')
+            appendMessageBelowElement(element,true)
+            return true
+        }
+    }else if (type="ctf"){
+        if (field.length < min && field.length != 0) {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationFail')
+            appendMessageBelowElement(element,`Field ini minimal ${min} karakter`,false)
+            return false
+        }else if (field.length >= min) {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationPass')
+            appendMessageBelowElement(element,true)
+            return true
+        }else {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            appendMessageBelowElement(element,true)
+        }
+    }
+    
+}
+
+const cekKosong = (element) => {
+    const field = element.value
+    if (field == 0) {
+        $(element).removeClass('validationFail')
+        $(element).removeClass('validationPass')
+        $(element).addClass('validationFail')
+        appendMessageBelowElement(element,`Field ini tidak boleh kosong`,false)
+    }else {
+        $(element).removeClass('validationFail')
+        $(element).removeClass('validationPass')
+        $(element).addClass('validationPass')
+        appendMessageBelowElement(element,true)
+    }
+}
+
+const cekEmail = (email,element,type ="cp") => {
+    if (element.value != 0) {
         const n = email.indexOf("@")
-        if (n == -1) {
-            swal('Format email salah')
-            return flashError()
+        const m = email.indexOf('/')
+        if (n == -1 || m != -1) {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationFail')
+            return appendMessageBelowElement(element,'Format email salah',false)
         }
         axios({
             url : baseUrl + '/api/users/cekEmail/' + email,
@@ -77,15 +124,26 @@ const cekEmail = (email,element) => {
             $(element).removeClass('validationFail')
             $(element).removeClass('validationPass')
             $(element).addClass('validationPass')
+            appendMessageBelowElement(element,true)
         })
         .catch(err => {
             $(element).removeClass('validationFail')
             $(element).removeClass('validationPass')
             $(element).addClass('validationFail')
+            console.log(err.response.data)
+            appendMessageBelowElement(element,err.response.data.message,false)
         })
     }else {
-        $(element).removeClass('validationFail')
-        $(element).removeClass('validationPass')
+        if (type=="ctf") {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            appendMessageBelowElement(element,true)
+        }else {
+            $(element).removeClass('validationFail')
+            $(element).removeClass('validationPass')
+            $(element).addClass('validationFail')
+            appendMessageBelowElement(element,"Email tidak boleh kosong",false)
+        }
     }
 }
 
@@ -128,10 +186,14 @@ const registerCp = () => {
             console.log(response.data)
             //dibawah ini lakuin kalo udah selesai/pindah halaman
             //localStorage.removeItem(token)
+            $('#cp_submitBtn').show()
+            $('.loading-cp').hide()
             swal(response.data.message)
         })
         .catch(err => {
             console.log(err.response.data)
+            $('#cp_submitBtn').show()
+            $('.loading-cp').hide()
             swal(err.response.data.message)
         })
 }
@@ -227,24 +289,80 @@ const registerCtf = () => {
         .then(async response => {
             console.log(response.data)
             swal(response.data.message)
+            $('#submitBtnCtf').show()
+            $('.loading-ctf').hide()
         })
         .catch(err => {
             console.log(err.response)
+            $('#submitBtnCtf').show()
+            $('.loading-ctf').hide()
             swal(err.response.data.message)
         })
     }
 }
 
 $(document).ready(() => {
-    sessionStorage.removeItem('emailErr')
-    sessionStorage.removeItem('usernameErr')
+    $('.loading-cp').hide()
+    $('.loading-ctf').hide()
     $('body').on('submit' , '#registerCpForm', e => {
         e.preventDefault();
+        $('#cp_submitBtn').hide()
+        $('.loading-cp').show()
         registerCp();
     })
 
     $('body').on('submit' , '#registerCtfForm', e => {
         e.preventDefault();
+        $('#submitBtnCtf').hide()
+        $('.loading-ctf').show()
         registerCtf()
     }) 
+
+    // validation CP
+    $('body').on('keyup' , '#cp_namaSekolah', elm => {
+        cekKosong(elm.target)
+    }) 
+    $('body').on('keyup' , '#cp_nama', elm => {
+        cekKosong(elm.target)
+        cekLength(elm.target,3)
+    }) 
+    $('body').on('keyup' , '#cp_notelp', elm => {
+        cekKosong(elm.target)
+        cekNotelp(elm.target)
+    }) 
+
+    // ctf
+    // validation Ctf
+    $('body').on('keyup' , '#ctf_namaSekolah', elm => {
+        cekKosong(elm.target)
+    }) 
+    $('body').on('keyup' , '#ctf_daerah', elm => {
+        cekKosong(elm.target)
+    }) 
+    $('body').on('keyup' , '#ctf_namaTeam', elm => {
+        cekKosong(elm.target)
+    }) 
+
+    $('body').on('keyup' , '#ctf_nama_0', elm => {
+        cekKosong(elm.target)
+        cekLength(elm.target,3)
+    }) 
+    $('body').on('keyup' , '#ctf_nama_1', elm => {
+        cekLength(elm.target,3,"ctf")
+    }) 
+    $('body').on('keyup' , '#ctf_nama_2', elm => {
+        cekLength(elm.target,3,"ctf")
+    }) 
+
+    $('body').on('keyup' , '#ctf_notelp_0', elm => {
+        cekKosong(elm.target)
+        cekNotelp(elm.target)
+    }) 
+    $('body').on('keyup' , '#ctf_notelp_1', elm => {
+        cekNotelp(elm.target,"ctf")
+    }) 
+    $('body').on('keyup' , '#ctf_notelp_2', elm => {
+        cekNotelp(elm.target,"ctf")
+    })
+
 })
