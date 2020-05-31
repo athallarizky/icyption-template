@@ -81,14 +81,14 @@
 
 
 
-                                    <form id="registerCpForm" action="#" enctype="multipart/form-data">
+                                    <form id="registerCpForm" action="#" autocomplete="false" enctype="multipart/form-data">
 
                                         <div id="teamAccount" class="collapse show" aria-labelledby="headingOne"
                                             data-parent="#accordionExample">
                                             <div class="form-group">
                                                 <label class="register-label">Nama Sekolah</label>
                                                 <input type="text" class="form-control usernameInput"
-                                                    placeholder="Nama Sekolah" id="cp_namaSekolah" onchange="cekUsername(this.value,this)" required >
+                                                    placeholder="Nama Sekolah" id="cp_namaSekolah" required >
                                             </div>
                                             
                                             <div class="form-group">
@@ -102,12 +102,12 @@
                                             <div class="form-group">
                                                 <label class="register-label">Nama Lengkap</label>
                                                 <input type="text" class="form-control" placeholder="John Doe"
-                                                    id="cp_nama" required>
+                                                    id="cp_nama"  required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="register-label">Nomor HP</label>
-                                                <input type="text" class="form-control" placeholder="0815xxxxxxx"
-                                                    id="cp_notelp" required>
+                                                <input type="number" class="form-control" placeholder="0815xxxxxxx"
+                                                    id="cp_notelp"  required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="register-label">Email</label>
@@ -118,10 +118,17 @@
                                                 <label class="register-label">Upload Kartu Pelajar</label>
                                                 <input type="file" class="form-control-file" id="cp_fotoId" required>
                                             </div>
+                                            
                                         </div>
-
                                         <input type="Submit" class="form-control register-submit-button mx-auto"
                                             value="Submit" id="cp_submitBtn">
+                                        <div class="loading loading-cp">
+                                            <div class="spinner-border text-warning" role="status">
+                                                <span class="sr-only">Mengirim Data...</span>
+                                            </div>
+                                        </div>
+                                        
+                                        
                                     </form>
                                 </div>
                             </div>
@@ -156,7 +163,7 @@
 
 
     </section>
-
+    
 
 
     <!-- Optional JavaScript -->
