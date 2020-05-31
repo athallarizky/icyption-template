@@ -73,7 +73,7 @@ const cekEmail = (email,element) => {
             url : baseUrl + '/api/users/cekEmail/' + email,
             method : 'GET',
         })
-        .then(response => {
+        .then(response => {   
             $(element).removeClass('validationFail')
             $(element).removeClass('validationPass')
             $(element).addClass('validationPass')
