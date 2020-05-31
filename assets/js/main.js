@@ -103,7 +103,7 @@ const registerCp = () => {
         // let password = $('#cp_password').val()
         // let rePassword = $('#cp_rePassword').val()
         let logoSekolah = $('#cp_logoSekolah')[0].files[0]
-        let fotoId = $('#cp_fotoId')[0].files[0]git 
+        let fotoId = $('#cp_fotoId')[0].files[0]
         // validasi
         // if (!validateRePassword(password,rePassword))  return swal('Password dan Re-Password tidak sama')
         if ( cekError() ) return swal('Terdapat field yang berwarna merah, harap cek kembali data anda')
