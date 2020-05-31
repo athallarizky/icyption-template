@@ -12,11 +12,13 @@ body {
 }
 
 .validationPass {
-    background-color:green;
+    background-color:#26de81;
+    border: transparent;
 }
 
 .validationFail {
-    background-color:red;
+    background-color:#eb3b5a;
+    border: transparent;
 }
 
 #main,
