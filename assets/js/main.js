@@ -98,9 +98,11 @@ const registerCp = () => {
         let nama = $('#cp_nama').val()
         let notelp = $('#cp_notelp').val()
         let email = $('#cp_email').val()
+        let namaSekolah = $('#cp_namaSekolah').val()
         // let username = $('#cp_username').val()
         // let password = $('#cp_password').val()
         // let rePassword = $('#cp_rePassword').val()
+        let logoSekolah = $('cp_logoSekolah')[0].files[0]
         let fotoId = $('#cp_fotoId')[0].files[0]
         // validasi
         // if (!validateRePassword(password,rePassword))  return swal('Password dan Re-Password tidak sama')
@@ -110,9 +112,11 @@ const registerCp = () => {
         data.append('nama', nama)
         data.append('notelp', notelp)
         data.append('email', email)
+        data.append('namaSekolah', namaSekolah)
         // data.append('username', username)
         // data.append('password', password)
         // data.append('rePassword', rePassword)
+        data.append('logoSekolah', logoSekolah)
         data.append('fotoId', fotoId)
         // send data
         axios({
