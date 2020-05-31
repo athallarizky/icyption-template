@@ -178,7 +178,6 @@ const registerCtf = () => {
     if ( cekError() ) return swal('Terdapat field yang berwarna merah, harap cek kembali data anda')
     // akun team
     const token = localStorage.getItem('token')
-    if (!validateRePassword(password,rePassword)) return swal('Password dan Re-Password tidak sama')
     let input0 = validasiInput(0)
     let input1 = validasiInput(1)
     let input2 = validasiInput(2)
@@ -209,9 +208,6 @@ const registerCtf = () => {
         data.append('token', token)
         data.append('namaTeam' , namaTeam)
         data.append('daerah' , daerah)
-        data.append('username' , username)
-        data.append('password' , password)
-        data.append('rePassword' , rePassword)
         data.append('namaSekolah', namaSekolah)
         data.append('logoSekolah', logoSekolah)
         
