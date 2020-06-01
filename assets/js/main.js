@@ -189,6 +189,9 @@ const registerCp = () => {
             $('#cp_submitBtn').show()
             $('.loading-cp').hide()
             swal(response.data.message)
+            .then(()=>{
+                window.location.href = "/"
+            })
         })
         .catch(err => {
             console.log(err.response.data)
@@ -288,9 +291,12 @@ const registerCtf = () => {
         })
         .then(async response => {
             console.log(response.data)
-            swal(response.data.message)
             $('#submitBtnCtf').show()
             $('.loading-ctf').hide()
+            swal(response.data.message)
+            .then(()=>{
+                window.location.href = "/"
+            })
         })
         .catch(err => {
             console.log(err.response)
