@@ -266,12 +266,16 @@ nav {
     justify-content: space-around;
 }
 
+.medpart-item{
+    margin: 10px 5px;
+}
+
 .sponsorship-item > img, .medpart-item > img {
-    width: 100px;
+    width: 80px;
 }
 
 .sponsorship-item > img{
-    opacity: 0.1;
+   width: 150px;
 }
 
 .register-item {
@@ -467,6 +471,11 @@ footer > h3 {
 
     .sponsorship-item > img, .medpart-item > img {
         width: 70px;
+    }
+
+    .sponsorship-item > img{
+        width: 150px;
+        margin-bottom: 25px;
     }
 
     .footer-logo{
